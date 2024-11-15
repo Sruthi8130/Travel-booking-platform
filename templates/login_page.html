@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <!-- LINEARICONS -->
+    <link rel="stylesheet" href="{% static 'login/fonts/linearicons/style.css' %}">
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="{% static 'login/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css' %}">
+    <!-- DATE-PICKER -->
+    <link rel="stylesheet" href="{% static 'login/vendor/date-picker/css/datepicker.min.css' %}">
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="{% static 'login/css/style.css' %}">
+
+    <style>
+        .main {
+            padding: 50px;
+        }
+        .x {
+            height: 350px; /* Adjusted to accommodate content */
+            width: 40%;
+            
+            padding: 10px; /* Added padding for spacing */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px; /* Rounded corners */
+        }
+        input[type="text"], input[type="password"] {
+            height: 30px;
+            width: 98%;
+            margin: 5px 0;
+            padding: 5px;
+            border: 1px solid #ccc; /* Border for inputs */
+            border-radius: 5px; /* Rounded corners for inputs */
+        }
+        .d {
+            width: 100%;
+            background-color: blue;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            border: 1px solid black;
+            height: 30px;
+            cursor: pointer;
+        }
+        .c, .e {
+            display: flex;
+            justify-content: space-between;
+            font-size: 15px;
+            color: blue;
+            width: 98%;
+        }
+        ::placeholder {
+            font-size: 10px;
+            color: orangered;
+        }
+        .a, .e a {
+            color: brown;
+        }
+        h4 {
+            color: yellow; /* Style for error messages */
+        }
+        h1{
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+      
+            <div class="main">
+                <div class="x">
+                    <form action="login" method="post">
+                        {% csrf_token %}
+                        <h1>LOGIN</h1>
+                        <div class="a">
+                            <input type="text" name="username" placeholder="Username" required>
+                        </div>
+                        <div class="b">
+                            <input type="password" name="password" placeholder="Password" required>
+                        </div>
+
+                        <button type="submit" class="d">LOGIN</button>
+                        <div class="e">
+                            Don't have an account? <a href="{% url 'register' %}">Register</a>
+                        </div>
+                    </form>
+                    {% for message in messages %}
+                        <h4>{{ message }}</h4>
+                    {% endfor %}
+                </div>
+                <a href="/"><button type="button" class="btn btn-warning">Main page</button></a>
+        </div>
+    </div>
+
+    <script src="{% static 'login/js/jquery-3.3.1.min.js' %}"></script>
+    <!-- DATE-PICKER -->
+    <script src="{% static 'login/vendor/date-picker/js/datepicker.js' %}"></script>
+    <script src="{% static 'login/vendor/date-picker/js/datepicker.en.js' %}"></script>
+    <script src="{% static 'login/js/main.js' %}"></script>
+</body>
+</html>

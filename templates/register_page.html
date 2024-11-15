@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="{% static 'register/css/reset.css' %}" type="text/css" media="all">
+    <link rel="stylesheet" href="{% static 'register/css/layout.css' %}" type="text/css" media="all">
+    <link rel="stylesheet" href="{% static 'register/css/style.css' %}" type="text/css" media="all">
+    <script type="text/javascript" src="{% static 'register/js/jquery-1.4.2.js' %}"></script>
+    <script type="text/javascript" src="{% static 'register/js/cufon-yui.js' %}"></script>
+    <script type="text/javascript" src="{% static 'register/js/cufon-replace.js' %}"></script>
+    <script type="text/javascript" src="{% static 'register/js/Myriad_Pro_600.font.js' %}"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/ie6_script_other.js"></script>
+    <script type="text/javascript" src="js/html5.js"></script>
+    <![endif]-->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color:white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        .header {
+            color: blue;
+            text-align: center;
+            padding: 40px;
+            border-radius: 8px 8px;
+            font-size: 25px;
+        }
+        label {
+            margin: 10px 0 5px;
+            display: block;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .reg {
+            width: 95%;
+            height: 40px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .message {
+            color: darkgreen;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .error {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .img img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px; /* Optional: round image corners */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="header">
+                <h1>REGISTRATION FORM</h1>
+            </div>
+            <br>
+            <br>
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <label>Name:</label>
+                <input type="text" name="first_name" required>
+
+                <label>Username:</label>
+                <input type="text" name="username" required>
+
+                <label>Password:</label>
+                <input type="password" name="password" required>
+
+                <label>Repeat Password:</label>
+                <input type="password" name="password2" required>
+
+                <button type="submit" class="reg">REGISTER</button>
+                <p>Already have an account? <a href="/accounts/login">Sign in</a>.</p>
+            </form>
+            {% for message in messages %}
+                <div class="message">{{ message }}</div>
+            {% endfor %}
+            {% if error_messages %}
+                <div class="error">{{ error_messages }}</div>
+            {% endif %}
+        </div>
+        <div class="img">
+            <img src="{% static 'register/images/img.jpg' %}" alt="Travel Image">
+        </div>
+    </div>
+</body>
+</html>
