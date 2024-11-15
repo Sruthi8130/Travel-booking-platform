@@ -1,5 +1,31 @@
 # WE TRAVEL -sample project
 
+Travel Booking Platform
+
+Explore, Book, and Unwind!
+
+A comprehensive web-based travel booking platform built to make your travel experiences seamless and enjoyable.
+
+Key Features
+
+- User Authentication: Secure login and registration system
+- Destination Search: Find your dream destination with ease
+- Booking Management: Manage your bookings effortlessly
+- Payment Gateway: Secure and convenient payment processing
+
+Tech Stack
+
+- Backend: Django
+- Database: PostgreSQL
+- Frontend: HTML, CSS, JavaScript
+
+Author
+
+Sruthi
+
+Let's Make Travel Booking Easier!
+
+
 ![Screenshot (125)](https://github.com/user-attachments/assets/1a3e1160-1b4a-4c2f-a479-5e25d6683ebe)
 ![Screenshot (126)](https://github.com/user-attachments/assets/51abee9a-f945-4733-886e-8039ba2fcbeb)
 ![Screenshot (127)](https://github.com/user-attachments/assets/3f91d747-2fe8-481a-aec6-86581066fd38)
